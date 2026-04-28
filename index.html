@@ -47,107 +47,122 @@
         <form id="intakeForm" action="Information has been sent.html" method="get">
             <table>
                 <tr>
-                    <th colspan="3">Block 1: Personal Information</th>
-                </tr>
+    <section class="form-section">
+  <form id="intakeForm" action="Information has been sent.html" method="get">
+    <table>
 
-                <tr>
-                    <td>
-                        <label for="firstName">First Name</label>
-                        <input
-                            id="firstName"
-                            name="firstName"
-                            type="text"
-                            maxlength="30"
-                            pattern="[A-Za-z'-]{1,30}"
-                            title="Enter your first name. Use 1 to 30 letters, apostrophes, or dashes only."
-                            required>
-                        <span class="error" id="firstNameError"></span>
-                    </td>
-</tr>
-                    <td>
-                        <label for="middleInitial">Middle Initial</label>
-                        <input
-                            id="middleInitial"
-                            class="mi"
-                            name="middleInitial"
-                            type="text"
-                            maxlength="1"
-                            pattern="[A-Za-z]?"
-                            title="Enter one letter for your middle initial, or leave it blank.">
-                        <span class="error" id="middleInitialError"></span>
-                    </td>
+      <tr>
+        <th colspan="3">Block 1: Personal Information</th>
+      </tr>
 
-                    <td>
-                        <label for="lastName">Last Name</label>
-                        <input
-                            id="lastName"
-                            name="lastName"
-                            type="text"
-                            maxlength="30"
-                            pattern="[A-Za-z'-]{1,30}"
-                            title="Enter your last name. Use 1 to 30 letters, apostrophes, or dashes only."
-                            required>
-                        <span class="error" id="lastNameError"></span>
-                    </td>
-            
-                    <tr>
-                        <td>
-    <label for="birthMonth">Birth Month</label>
-    <input
-        id="birthMonth"
-        name="birthMonth"
-        type="text"
-        maxlength="2"
-        pattern="^(0[1-9]|1[0-2])$"
-        placeholder="MM"
-        title="Enter the month using 2 digits, from 01 to 12."
-        required>
-    <span class="error" id="birthMonthError"></span>
-</td>
+      <!-- NAME ROW -->
+      <tr>
+        <td colspan="3">
+          <div class="name-row">
 
-<td>
-    <label for="birthDay">Birth Day</label>
-    <input
-        id="birthDay"
-        name="birthDay"
-        type="text"
-        maxlength="2"
-        pattern="^(0[1-9]|[12][0-9]|3[01])$"
-        placeholder="DD"
-        title="Enter the day using 2 digits, from 01 to 31."
-        required>
-    <span class="error" id="birthDayError"></span>
-</td>
+            <div class="name-field">
+              <label for="firstName">First Name</label>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                maxlength="30"
+                pattern="[A-Za-z'-]{1,30}"
+                title="Enter your first name. Use 1 to 30 letters, apostrophes, or dashes only."
+                required>
+              <span class="error" id="firstNameError"></span>
+            </div>
 
-<td>
-    <label for="birthYear">Birth Year</label>
-    <input
-        id="birthYear"
-        name="birthYear"
-        type="text"
-        maxlength="4"
-        pattern="^[0-9]{4}$"
-        placeholder="YYYY"
-        title="Enter the year using 4 digits."
-        required>
-    <span class="error" id="birthYearError"></span>
-</td>
-</tr>
+            <div class="mi-field">
+              <label for="middleInitial">MI</label>
+              <input
+                id="middleInitial"
+                name="middleInitial"
+                type="text"
+                class="mi"
+                maxlength="1"
+                pattern="[A-Za-z]?"
+                title="Enter one letter for your middle initial, or leave it blank.">
+              <span class="error" id="middleInitialError"></span>
+            </div>
 
-                  <tr>
-    <td colspan="3">
-        <label for="patientId">Patient ID Number</label>
-        <input
+            <div class="name-field">
+              <label for="lastName">Last Name</label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                maxlength="30"
+                pattern="[A-Za-z'-]{1,30}"
+                title="Enter your last name. Use 1 to 30 letters, apostrophes, or dashes only."
+                required>
+              <span class="error" id="lastNameError"></span>
+            </div>
+
+          </div>
+        </td>
+      </tr>
+
+      <!-- BIRTH DATE ROW -->
+      <tr>
+        <td>
+          <label for="birthMonth">Birth Month</label>
+          <input
+            id="birthMonth"
+            name="birthMonth"
+            type="text"
+            maxlength="2"
+            pattern="^(0[1-9]|1[0-2])$"
+            placeholder="MM"
+            title="Enter the month using 2 digits, from 01 to 12."
+            required>
+          <span class="error" id="birthMonthError"></span>
+        </td>
+
+        <td>
+          <label for="birthDay">Birth Day</label>
+          <input
+            id="birthDay"
+            name="birthDay"
+            type="text"
+            maxlength="2"
+            pattern="^(0[1-9]|[12][0-9]|3[01])$"
+            placeholder="DD"
+            title="Enter the day using 2 digits, from 01 to 31."
+            required>
+          <span class="error" id="birthDayError"></span>
+        </td>
+
+        <td>
+          <label for="birthYear">Birth Year</label>
+          <input
+            id="birthYear"
+            name="birthYear"
+            type="text"
+            maxlength="4"
+            pattern="^[0-9]{4}$"
+            placeholder="YYYY"
+            title="Enter the year using 4 digits."
+            required>
+          <span class="error" id="birthYearError"></span>
+        </td>
+      </tr>
+
+      <!-- PATIENT ID ROW -->
+      <tr>
+        <td colspan="3">
+          <label for="patientId">Patient ID Number</label>
+          <input
             id="patientId"
             name="patientId"
             type="password"
             pattern="^[0-9]{9}$"
             title="Enter a 9-digit patient ID number."
             required>
-        <span class="error" id="patientIdError"></span>
-    </td>
-</tr>
-                   <tr>
+          <span class="error" id="patientIdError"></span>
+        </td>
+      </tr>
+
     <th colspan="3">Block 2: Contact Information</th>
 </tr>
 
