@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,384 +8,378 @@
         Program name: registrationForm.html
         Author: Marco Viana Urrutia
         Date created: Feb/20/2026
-        Date last edited: Apr/13/2026
-        Version: 4.5
+        Date last edited: Apr/22/2026
+        Version: 5.5
         Description: This is an intake form for new patients.
     -->
-        <title>Patient Solutions Clinic</title>
+    <title>Patient Solutions Clinic</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
-    <header>
-        <div class="top">
+  <header>
+    <div class="top">
+
+        <!-- Background Overlay -->
+        <div class="overlay"></div>
+
+        <!-- Content inside header -->
+        <div class="header-content">
             <img src="Images/cross-health-symbol.jpg" alt="Clinic Logo" class="logo">
-            <div>
-                <h1>Patient Intake Form</h1>
-                <p>Please complete all required fields.</p>
+
+            <div class="header-text">    
+                <h1>Patient Solutions Clinic</h1>
+                <p>Your health comes first</p>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <main class="container">
-        <section class="form-section">
-            <form id="patientForm" action="Information has been sent.html" method="get">
-                <table>
-                    <tr>
-                        <th colspan="3">Block 1: Personal Information</th>
-                    </tr>
+<!-- Main Section -->
+<div class="middle">
+    <h2>Welcome to the Patient Intake Form</h2>
+    <p>Please fill out your information below.</p>
+</div>
 
-                    <tr>
-                        <td>
-                            <label for="firstName">First Name</label>
-                            <input
-                                id="firstName"
-                                name="firstName"
-                                type="text"
-                                maxlength="30"
-                                pattern=".{1,30}"
-                                title="Enter your first name. It must be between 1 and 30 characters."
-                                required>
-                            <span class="error" id="firstNameError"></span>
-                        </td>
+<main class="container">
+    <section class="form-section">
+        <form id="intakeForm" action="Information has been sent.html" method="get">
+            <table>
+                <tr>
+                    <th colspan="3">Block 1: Personal Information</th>
+                </tr>
 
-                        <td>
-                            <label for="middleInitial">Middle Initial</label>
-                            <input
-                                id="middleInitial"
-                                class="mi"
-                                name="middleInitial"
-                                type="text"
-                                maxlength="1"
-                                pattern="[A-Za-z]?"
-                                title="Enter one letter for your middle initial, or leave it blank.">
-                            <span class="error" id="middleInitialError"></span>
-                        </td>
+                <tr>
+                    <td>
+                        <label for="firstName">First Name</label>
+                        <input
+                            id="firstName"
+                            name="firstName"
+                            type="text"
+                            maxlength="30"
+                            pattern="[A-Za-z'-]{1,30}"
+                            title="Enter your first name. Use 1 to 30 letters, apostrophes, or dashes only."
+                            required>
+                        <span class="error" id="firstNameError"></span>
+                    </td>
+</tr>
+                    <td>
+                        <label for="middleInitial">Middle Initial</label>
+                        <input
+                            id="middleInitial"
+                            class="mi"
+                            name="middleInitial"
+                            type="text"
+                            maxlength="1"
+                            pattern="[A-Za-z]?"
+                            title="Enter one letter for your middle initial, or leave it blank.">
+                        <span class="error" id="middleInitialError"></span>
+                    </td>
 
-                        <td>
-                            <label for="lastName">Last Name</label>
-                            <input
-                                id="lastName"
-                                name="lastName"
-                                type="text"
-                                maxlength="30"
-                                pattern=".{1,30}"
-                                title="Enter your last name. It must be between 1 and 30 characters."
-                                required>
-                            <span class="error" id="lastNameError"></span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label for="birthMonth">Birth Month</label>
-                            <input
-                                id="birthMonth"
-                                name="birthMonth"
-                                type="text"
-                                maxlength="2"
-                                pattern="0[1-9]|1[0-2]"
-                                placeholder="MM"
-                                title="Enter the month using 2 digits, from 01 to 12."
-                                required>
-                            <span class="error" id="birthMonthError"></span>
-                        </td>
-
-                        <td>
-                            <label for="birthDay">Birth Day</label>
-                            <input
-                                id="birthDay"
-                                name="birthDay"
-                                type="text"
-                                maxlength="2"
-                                pattern="0[1-9]|[12][0-9]|3[01]"
-                                placeholder="DD"
-                                title="Enter the day using 2 digits, from 01 to 31."
-                                required>
-                            <span class="error" id="birthDayError"></span>
-                        </td>
-
-                        <td>
-                            <label for="birthYear">Birth Year</label>
-                            <input
-                                id="birthYear"
-                                name="birthYear"
-                                type="text"
-                                maxlength="4"
-                                pattern="[0-9]{4}"
-                                placeholder="YYYY"
-                                title="Enter the year using 4 digits."
-                                required>
-                            <span class="error" id="birthYearError"></span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="3">
-                            <label for="patientId">Patient ID Number</label>
-                            <input
-                                id="patientId"
-                                name="patientId"
-                                type="password"
-                                pattern="[0-9]{4,12}"
-                                title="Enter a patient ID number using 4 to 12 digits."
-                                required>
-                            <span class="error" id="patientIdError"></span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th colspan="3">Block 2: Contact Information</th>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2">
-                            <label for="email">Email Address</label>
-                            <input
-                                id="email"
-                                name="email"
-                                type="email"
-                                title="Enter your email address."
-                                required>
-                            <span class="error" id="emailError"></span>
-                        </td>
-
-                        <td>
-                            <label for="phone">Phone Number</label>
-                            <input
-                                id="phone"
-                                name="phone"
-                                type="tel"
-                                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                placeholder="000-000-0000"
-                                title="Enter your phone number in the format 000-000-0000."
-                                required>
-                            <span class="error" id="phoneError"></span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th colspan="3">Block 3: Address</th>
-                    </tr>
-
-                    <tr>
-                        <td colspan="3">
-                            <label for="addr1">Address Line 1</label>
-                            <input
-                                id="addr1"
-                                name="addr1"
-                                type="text"
-                                minlength="2"
-                                maxlength="30"
-                                title="Enter your address line 1. Use 2 to 30 characters."
-                                required>
-                            <span class="error" id="addr1Error"></span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="3">
-                            <label for="addr2">Address Line 2</label>
-                            <input
-                                id="addr2"
-                                name="addr2"
-                                type="text"
-                                minlength="2"
-                                maxlength="30"
-                                title="Optional. If entered, use 2 to 30 characters.">
-                            <span class="error" id="addr2Error"></span>
-                        </td>
-                    </tr>
-
+                    <td>
+                        <label for="lastName">Last Name</label>
+                        <input
+                            id="lastName"
+                            name="lastName"
+                            type="text"
+                            maxlength="30"
+                            pattern="[A-Za-z'-]{1,30}"
+                            title="Enter your last name. Use 1 to 30 letters, apostrophes, or dashes only."
+                            required>
+                        <span class="error" id="lastNameError"></span>
+                    </td>
+            
                     <tr>
                         <td>
-                            <label for="city">City</label>
-                            <input
-                                id="city"
-                                name="city"
-                                type="text"
-                                minlength="2"
-                                maxlength="30"
-                                title="Enter your city. Use 2 to 30 characters."
-                                required>
-                            <span class="error" id="cityError"></span>
-                        </td>
+    <label for="birthMonth">Birth Month</label>
+    <input
+        id="birthMonth"
+        name="birthMonth"
+        type="text"
+        maxlength="2"
+        pattern="^(0[1-9]|1[0-2])$"
+        placeholder="MM"
+        title="Enter the month using 2 digits, from 01 to 12."
+        required>
+    <span class="error" id="birthMonthError"></span>
+</td>
 
-                        <td>
-                            <label for="state">State</label>
-                            <select id="state" name="state" title="Choose your state." required>
-                                <option value="">-- Select --</option>
-                                <option value="AL">AL</option>
-                                <option value="AK">AK</option>
-                                <option value="AZ">AZ</option>
-                                <option value="AR">AR</option>
-                                <option value="CA">CA</option>
-                                <option value="CO">CO</option>
-                                <option value="CT">CT</option>
-                                <option value="DE">DE</option>
-                                <option value="DC">DC</option>
-                                <option value="FL">FL</option>
-                                <option value="GA">GA</option>
-                                <option value="HI">HI</option>
-                                <option value="ID">ID</option>
-                                <option value="IL">IL</option>
-                                <option value="IN">IN</option>
-                                <option value="IA">IA</option>
-                                <option value="KS">KS</option>
-                                <option value="KY">KY</option>
-                                <option value="LA">LA</option>
-                                <option value="ME">ME</option>
-                                <option value="MD">MD</option>
-                                <option value="MA">MA</option>
-                                <option value="MI">MI</option>
-                                <option value="MN">MN</option>
-                                <option value="MS">MS</option>
-                                <option value="MO">MO</option>
-                                <option value="MT">MT</option>
-                                <option value="NE">NE</option>
-                                <option value="NV">NV</option>
-                                <option value="NH">NH</option>
-                                <option value="NJ">NJ</option>
-                                <option value="NM">NM</option>
-                                <option value="NY">NY</option>
-                                <option value="NC">NC</option>
-                                <option value="ND">ND</option>
-                                <option value="OH">OH</option>
-                                <option value="OK">OK</option>
-                                <option value="OR">OR</option>
-                                <option value="PA">PA</option>
-                                <option value="RI">RI</option>
-                                <option value="SC">SC</option>
-                                <option value="SD">SD</option>
-                                <option value="TN">TN</option>
-                                <option value="TX">TX</option>
-                                <option value="UT">UT</option>
-                                <option value="VT">VT</option>
-                                <option value="VA">VA</option>
-                                <option value="WA">WA</option>
-                                <option value="WV">WV</option>
-                                <option value="WI">WI</option>
-                                <option value="WY">WY</option>
-                                <option value="PR">PR</option>
-                            </select>
-                            <span class="error" id="stateError"></span>
-                        </td>
+<td>
+    <label for="birthDay">Birth Day</label>
+    <input
+        id="birthDay"
+        name="birthDay"
+        type="text"
+        maxlength="2"
+        pattern="^(0[1-9]|[12][0-9]|3[01])$"
+        placeholder="DD"
+        title="Enter the day using 2 digits, from 01 to 31."
+        required>
+    <span class="error" id="birthDayError"></span>
+</td>
 
-                        <td>
-                            <label for="zip">Zip Code</label>
-                            <input
-                                id="zip"
-                                name="zip"
-                                type="text"
-                                pattern="[0-9]{5}(-[0-9]{4})?"
-                                placeholder="77002 or 77002-1234"
-                                title="Enter 5 digits or ZIP+4 format."
-                                required>
-                            <span class="error" id="zipError"></span>
-                        </td>
-                    </tr>
+<td>
+    <label for="birthYear">Birth Year</label>
+    <input
+        id="birthYear"
+        name="birthYear"
+        type="text"
+        maxlength="4"
+        pattern="^[0-9]{4}$"
+        placeholder="YYYY"
+        title="Enter the year using 4 digits."
+        required>
+    <span class="error" id="birthYearError"></span>
+</td>
+</tr>
 
-                    <tr>
-                        <th colspan="3">Block 4: Choices</th>
-                    </tr>
+                  <tr>
+    <td colspan="3">
+        <label for="patientId">Patient ID Number</label>
+        <input
+            id="patientId"
+            name="patientId"
+            type="password"
+            pattern="^[0-9]{9}$"
+            title="Enter a 9-digit patient ID number."
+            required>
+        <span class="error" id="patientIdError"></span>
+    </td>
+</tr>
+                   <tr>
+    <th colspan="3">Block 2: Contact Information</th>
+</tr>
 
-                    <tr>
-                        <td colspan="3">
-                            <fieldset>
-                                <legend>Check all that apply</legend>
-                                <div class="inline-group">
-                                    <label><input type="checkbox" name="history" value="Chicken Pox"> Chicken Pox</label>
-                                    <label><input type="checkbox" name="history" value="Measles"> Measles</label>
-                                    <label><input type="checkbox" name="history" value="Covid-19"> Covid-19</label>
-                                    <label><input type="checkbox" name="history" value="Asthma"> Asthma</label>
-                                    <label><input type="checkbox" name="history" value="Allergies"> Allergies</label>
-                                </div>
-                            </fieldset>
-                        </td>
-                    </tr>
+<tr>
+    <td colspan="2">
+        <label for="email">Email Address</label>
+        <input
+            id="email"
+            name="email"
+            type="email"
+            pattern="^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            title="Enter email in the format name@domain.tld."
+            required>
+        <span class="error" id="emailError"></span>
+    </td>
 
-                    <tr>
+    <td>
+        <label for="phone">Phone Number</label>
+        <input
+            id="phone"
+            name="phone"
+            type="tel"
+            pattern="[0-9]{10}"
+            placeholder="(000) 000-0000"
+            title="Optional. Enter a 10-digit phone number.">
+        <span class="error" id="phoneError"></span>
+    </td>
+</tr>
 
-                        <td>
-                            <fieldset>
-                                <legend>Vaccination Information</legend>
-                                <label><input type="radio" name="vaccinated" value="Yes" required> Yes</label>
-                                <label><input type="radio" name="vaccinated" value="No"> No</label>
-                            </fieldset>
-                        </td>
+                   <tr>
+    <th colspan="3">Block 3: Address</th>
+</tr>
 
-                        <td>
-                            <fieldset>
-                                <legend>Insurance Information</legend>
-                                <label><input type="radio" name="insured" value="Yes" required> Yes</label>
-                                <label><input type="radio" name="insured" value="No"> No</label>
-                            </fieldset>
-                        </td>
-                    </tr>
+<tr>
+    <td colspan="3">
+        <label for="addr1">Address Line 1</label>
+        <input
+            id="addr1"
+            name="addr1"
+            type="text"
+            minlength="2"
+            maxlength="30"
+            title="Required. Enter your address line 1 using 2 to 30 characters."
+            required>
+        <span class="error" id="addr1Error"></span>
+    </td>
+</tr>
 
-                    <tr>
-                        <td colspan="3">
-                            <label for="notes">Extra Notes</label>
-                            <textarea
-                                id="notes"
-                                name="notes"
-                                rows="4"
-                                placeholder="Write extra notes here..."
-                                title="This box is optional. You can type extra information here."></textarea>
-                            <span class="error" id="notesError"></span>
-                        </td>
-                    </tr>
+<tr>
+    <td colspan="3">
+        <label for="addr2">Address Line 2</label>
+        <input
+            id="addr2"
+            name="addr2"
+            type="text"
+            minlength="2"
+            maxlength="30"
+            title="Optional. If entered, use 2 to 30 characters.">
+        <span class="error" id="addr2Error"></span>
+    </td>
+</tr>
 
-                    <tr>
-                        <td colspan="3">
-                            <label for="userId">Desired User ID</label>
-                            <input
-                                id="userId"
-                                name="userId"
-                                type="text"
-                                pattern="[A-Za-z][A-Za-z0-9_-]{4,29}"
-                                title="Use 5 to 30 characters. Start with a letter. Use letters, numbers, underscores, or dashes only."
-                                required>
-                            <span class="error" id="userIdError"></span>
-                        </td>
-                    </tr>
+<tr>
+    <td>
+        <label for="city">City</label>
+        <input
+            id="city"
+            name="city"
+            type="text"
+            minlength="2"
+            maxlength="30"
+            pattern="[A-Za-z .'-]{2,30}"
+            title="Enter your city using letters, spaces, apostrophes, or dashes (2–30 characters)."
+            required>
+        <span class="error" id="cityError"></span>
+    </td>
 
-                    <tr>
-                        <td>
-                            <label for="password">Password</label>
-                            <input
-                                id="password"
-                                name="password"
-                                type="password"
-                                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#%^&*-_+=.,`])[A-Za-z0-9!@#%^&*-_+=.,`]{8,30}"
-                                title="Password must be 8 to 30 characters and include uppercase, lowercase, a number, and a special character. Do not use quotation marks."
-                                required>
-                            <span class="error" id="passwordError"></span>
-                        </td>
+    <td>
+        <label for="state">State</label>
+        <select id="state" name="state" title="Choose your state." required>
+            <option value="">-- Select --</option>
+            <!-- your options stay the same -->
+        </select>
+        <span class="error" id="stateError"></span>
+    </td>
 
-                        <td colspan="2">
-                            <label for="password2">Re-enter Password</label>
-                            <input
-                                id="password2"
-                                name="password2"
-                                type="password"
-                                title="Type the same password again."
-                                required>
-                            <span class="error" id="password2Error"></span>
-                        </td>
-                    </tr>
+    <td>
+        <label for="zip">Zip Code</label>
+        <input
+            id="zip"
+            name="zip"
+            type="text"
+            maxlength="5"
+            pattern="^[0-9]{5}$"
+            placeholder="77002"
+            title="Enter exactly 5 digits."
+            required>
+        <span class="error" id="zipError"></span>
+    </td>
+</tr>
 
-                    <tr>
-                        <td colspan="3">
-                            <div class="actions">
-                                <button type="button" id="reviewBtn">Review</button>
-                                <button type="reset">Clear</button>
-                                <button type="submit">Submit</button>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </form>
+          <tr>
+    <th colspan="3">Block 4: Choices</th>
+</tr>
+
+<tr>
+    <td colspan="3">
+        <fieldset>
+            <legend>Check all that apply</legend>
+            <div class="inline-group">
+                <label><input type="checkbox" name="history" value="Chicken Pox"> Chicken Pox</label>
+                <label><input type="checkbox" name="history" value="Measles"> Measles</label>
+                <label><input type="checkbox" name="history" value="Covid-19"> Covid-19</label>
+                <label><input type="checkbox" name="history" value="Asthma"> Asthma</label>
+                <label><input type="checkbox" name="history" value="Allergies"> Allergies</label>
+            </div>
+        </fieldset>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <fieldset>
+            <legend>Housing</legend>
+            <label><input type="radio" name="housing" value="Own"> Own</label>
+            <label><input type="radio" name="housing" value="Rent"> Rent</label>
+            <label><input type="radio" name="housing" value="Unsure"> Unsure</label>
+            <span class="error" id="housingError"></span>
+        </fieldset>
+    </td>
+
+    <td>
+        <fieldset>
+            <legend>Vaccination Information</legend>
+            <label><input type="radio" name="vaccinated" value="Yes"> Yes</label>
+            <label><input type="radio" name="vaccinated" value="No"> No</label>
+            <span class="error" id="vaccinatedError"></span>
+        </fieldset>
+    </td>
+
+    <td>
+        <fieldset>
+            <legend>Insurance Information</legend>
+            <label><input type="radio" name="insured" value="Yes"> Yes</label>
+            <label><input type="radio" name="insured" value="No"> No</label>
+            <span class="error" id="insuredError"></span>
+        </fieldset>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="3">
+        <label for="salaryRange">Desired Salary</label>
+        <input
+            type="range"
+            id="salaryRange"
+            name="salaryRange"
+            min="20000"
+            max="200000"
+            step="5000"
+            value="60000"
+            title="Move the slider to choose your desired salary.">
+        <span id="salaryOutput"></span>
+        <span class="error" id="salaryRangeError"></span>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="3">
+        <label for="notes">Extra Notes</label>
+        <textarea
+            id="notes"
+            name="notes"
+            rows="4"
+            placeholder="Write extra notes here..."
+            title="This box is optional. You can type extra information here."></textarea>
+        <span class="error" id="notesError"></span>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="3">
+        <label for="userId">Desired User ID</label>
+        <input
+            id="userId"
+            name="userId"
+            type="text"
+            pattern="^[A-Za-z][A-Za-z0-9_-]{4,19}$"
+            title="Use 5 to 20 characters. Start with a letter. Use letters, numbers, underscores, or dashes only."
+            required>
+        <span class="error" id="userIdError"></span>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <label for="password">Password</label>
+        <input
+            id="password"
+            name="password"
+            type="password"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,30}$"
+            title="Password must be 8 to 30 characters and include at least one uppercase letter, one lowercase letter, and one number."
+            required>
+        <span class="error" id="passwordError"></span>
+    </td>
+
+    <td colspan="2">
+        <label for="password2">Re-enter Password</label>
+        <input
+            id="password2"
+            name="password2"
+            type="password"
+            title="Type the same password again."
+            required>
+        <span class="error" id="password2Error"></span>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="3">
+        <div class="actions">
+            <button type="button" id="reviewBtn">Review</button>
+            <button type="button" id="validateBtn">Validate</button>
+            <button type="reset">Clear</button>
+            <button type="submit" id="submitBtn">Submit</button>
+        </div>
+    </td>
+</tr>
+</table>
+
+</form>
         </section>
 
         <section class="review-section">
