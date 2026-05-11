@@ -2,18 +2,21 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 0 0 45px 0;
 }
 
 /* HEADER */
 .top {
-  position: relative;
-  background-image: url("Images/crosses.jpg");
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  height: 150px;
+
+  background-image: url("Images/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  height: 200px;
 
   display: flex;
   align-items: center;
@@ -36,13 +39,13 @@ body {
   align-items: center;
   gap: 15px;
 
-  padding: 0 20px;
   width: 100%;
+  padding: 0 20px;
 }
 
 /* LOGO */
 .logo {
-  height: 55px;
+  height: 65px;
   width: auto;
 }
 
@@ -53,30 +56,29 @@ body {
 
 .header-text h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 30px;
 }
 
 .header-text p {
   margin: 0;
-  font-size: 14px;
+  font-size: 17px;
 }
 
 /* INTRO SECTION */
 .middle {
-  padding: 15px 20px 5px 20px;
   margin: 0;
-  min-height: 0;
+  padding: 15px 20px 5px;
 }
 
 .middle h2 {
-  margin: 0 0 8px 0;
+  margin: 0 0 8px;
 }
 
 .middle p {
   margin: 0;
 }
 
-/* FORM AREA (CENTERED WITH REVIEW) */
+/* FORM AREA */
 .container {
   display: flex;
   justify-content: center;
@@ -113,9 +115,9 @@ td {
 }
 
 label {
-  font-weight: 600;
   display: inline-block;
   margin-bottom: 4px;
+  font-weight: 600;
 }
 
 /* INPUTS */
@@ -153,18 +155,29 @@ input.mi {
 /* FIELDSET */
 fieldset {
   border: 1px solid #ccc;
+  margin: 5px 0 10px;
   padding: 12px;
-  margin: 5px 0 10px 0;
 }
 
 legend {
-  font-weight: 700;
   padding: 0 6px;
+  font-weight: 700;
 }
 
 /* FOOTER */
+footer,
 .bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background-color: white;
   border-top: 1px solid #ccc;
+
+  padding: 2px 0;
   text-align: center;
-  padding: 20px;
+  font-size: 12px;
 }

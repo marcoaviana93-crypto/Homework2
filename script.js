@@ -1,4 +1,4 @@
-const form = document.getElementById('intakeForm');
+const form = document.getElementById('patientForm');
 const reviewBtn = document.getElementById('reviewBtn');
 const reviewContent = document.getElementById('reviewContent');
 const salaryRange = document.getElementById('salaryRange');
@@ -55,7 +55,7 @@ function validateForm() {
 
   const fields = [
     'firstName', 'middleInitial', 'lastName', 'birthMonth', 'birthDay', 'birthYear',
-    'memberId', 'email', 'phone', 'addr1', 'addr2', 'city', 'state', 'zip', 'userId',
+    'patientId', 'email', 'phone', 'addr1', 'addr2', 'city', 'state', 'zip', 'userId',
     'password', 'password2'
   ];
 
@@ -167,6 +167,18 @@ reviewBtn.addEventListener('click', () => {
   }
 });
 
+const validateBtn = document.getElementById("validateBtn");
+
+validateBtn.addEventListener("click", function () {
+
+    if (validateForm()) {
+        alert("Form is valid!");
+    } else {
+        alert("Please correct the highlighted errors.");
+    }
+
+});
+
 form.addEventListener('submit', event => {
   if (!validateForm()) {
     event.preventDefault();
@@ -185,5 +197,31 @@ form.addEventListener('reset', () => {
     updateSalary();
   }, 0);
 });
+
+function loadStates() {
+  fetch("states.json")
+    .then(response => response.json())
+    .then(states => {
+
+      const stateSelect = document.getElementById("state");
+
+      states.forEach(state => {
+        const option = document.createElement("option");
+
+        option.value = state.code;
+        option.textContent = state.name;
+
+        stateSelect.appendChild(option);
+      });
+
+    })
+    .catch(error => {
+      console.log("Error loading states:", error);
+    });
+}
+
+
+// RUN FUNCTION
+loadStates();
 
 updateSalary();
