@@ -66,16 +66,18 @@ body {
 
 /* INTRO SECTION */
 .middle {
+  text-align: center;
+  color: #333;
   margin: 0;
-  padding: 15px 20px 5px;
+  padding: 15px 30px 5px;
 }
 
 .middle h2 {
-  margin: 0 0 8px;
+  margin: 0 0 18px;
 }
 
 .middle p {
-  margin: 0;
+  margin: 20px 0;
 }
 
 /* FORM AREA */
@@ -180,4 +182,15 @@ footer,
   padding: 2px 0;
   text-align: center;
   font-size: 12px;
+}
+
+/* MAP SECTION */
+.map-section {
+  width: 80%;
+  margin: 30px auto;
+}
+
+.map-section h2 {
+  text-align: center;
+  margin-bottom: 15px;
 }

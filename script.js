@@ -225,3 +225,68 @@ function loadStates() {
 loadStates();
 
 updateSalary();
+
+// CREATE COOKIE
+function setCookie(name, value, days) {
+
+  let expires = "";
+
+  if (days) {
+    const date = new Date();
+
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+
+    expires = "; expires=" + date.toUTCString();
+  }
+
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+
+// READ COOKIE
+function getCookie(name) {
+
+  const cookieName = name + "=";
+
+  const decodedCookie = decodeURIComponent(document.cookie);
+
+  const cookies = decodedCookie.split(';');
+
+  for (let i = 0; i < cookies.length; i++) {
+
+    let cookie = cookies[i];
+
+    while (cookie.charAt(0) === ' ') {
+      cookie = cookie.substring(1);
+    }
+
+    if (cookie.indexOf(cookieName) === 0) {
+      return cookie.substring(cookieName.length, cookie.length);
+    }
+  }
+
+  return "";
+}
+
+
+// SAVE FIRST NAME
+form.addEventListener('submit', () => {
+
+  setCookie("firstName", form.firstName.value, 7);
+
+});
+
+
+// LOAD COOKIE WHEN PAGE OPENS
+window.addEventListener('load', () => {
+
+  const savedName = getCookie("firstName");
+
+  if (savedName !== "") {
+
+    document.getElementById("firstName").value = savedName;
+
+  }
+});
+
+/* End of file: cript.js */
